@@ -22,7 +22,7 @@ class Room(object):
         if self.current_occupancy == self.max_occupancy:
             print ('This room is full to capacity..sorry')
         else:
-            print ('This room still has available space!')
+            print ('This room still has available  space!')
         
         
 class Living_space(Room):
