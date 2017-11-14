@@ -22,4 +22,4 @@ class LivingSpaceClassTest(Testcase):
         self.assertEqual({self.room_gender: 'female',self.Person.gender : 'F'}, msg = 'please fill in gender')
 
     if __name__ == '__main__':
-            unittest.main()
+        unittest.main()
