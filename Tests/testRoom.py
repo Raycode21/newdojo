@@ -16,9 +16,10 @@ class RoomClassTest(Testcase):
 
     def test_check_occupancy(self):
         self.assertGreater (self.current_occupancy, self.max_occupancy, 'current_occupancy should be less the maximum')
-class LivingSpaceClassTest(Testcase):
-        def test_allocate_by_gender(self):
-            assertEqual({self.room_gender: 'female',self.Person.gender : 'F'}, msg = 'please fill in gender')
 
-        if __name__ == '__main__':
+class LivingSpaceClassTest(Testcase):
+    def test_allocate_by_gender(self):
+        self.assertEqual({self.room_gender: 'female',self.Person.gender : 'F'}, msg = 'please fill in gender')
+
+    if __name__ == '__main__':
             unittest.main()
