@@ -3,8 +3,8 @@ from unittest import TestCase
 from src.person import Person, Fellow, Staff
 
 class PersonClassTest(TestCase):
-    def setup(self):
-        self.person = Person(name ='Charles Darwin', designation = 'staff')
+        def setup(self):
+            self.person = Person(name ='Charles Darwin', designation = 'staff')
 
         def test_person_instance(self):
             Charles = Person('Charles Darwin')
