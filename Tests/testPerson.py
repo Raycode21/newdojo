@@ -1,18 +1,24 @@
 import unittest
 from unittest import TestCase
-from src.room import Person, Fellow, Staff
+from src.person import Person, Fellow, Staff
 
-class PersonClassTest(Testcase):
-    def test_person_instance(self):
-        rachel = Person('Rachel')
-        self.assertIsInstance(rachel, Person, msg = 'object should be a type of Person')
+class PersonClassTest(TestCase):
+    def setup(self):
+        self.person = Person(name ='Charles Darwin', designation = 'staff')
 
-class StaffClassTest(Testcase):
+        def test_person_instance(self):
+            Charles = Person('Charles Darwin')
+            self.assertIsInstance(Charles, Person, msg = 'object should be a type of Person')
+
+class StaffClassTest(TestCase):
     def test_allocated_room(self):
+        self.allocated_room = 'office'
         self.assertEqual(self.allocated_room, 'office', msg = 'Staff can only be allocated to office')
-class FellowClasstest(Testcase):
+
+class FellowClasstest(TestCase):
     def test_wants_room(self):
         rachel = Person('Rachel')
         self.assertTrue(rachel.wants_room, msg = 'This person must be assigned a room if unless they are staff')
+
     if __name__ == '__main__':
         unittest.main()
