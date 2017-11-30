@@ -5,9 +5,6 @@ from src.dojo import Dojo
 
 def setUp(self):
     self.dojo = Dojo()
-    self.max_occupancy = 50
-    self.total_rooms = []
-
 
 class TestCreateRoom(TestCase):
     def test_create_room_successfully(self):
@@ -35,3 +32,5 @@ class TestCreateRoom(TestCase):
 
     def test_add_room(self):
         self.assertTrue(len(self.total_rooms)+1)
+    if __name__ == '__main__':
+        unittest.main()
