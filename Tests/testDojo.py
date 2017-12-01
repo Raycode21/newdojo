@@ -1,7 +1,7 @@
 
 import os
 from unittest import TestCase
-from src.dojo import Dojo
+from src.dojo import*
 
 def setUp(self):
     self.dojo = Dojo()

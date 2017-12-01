@@ -1,19 +1,20 @@
-from room import Room
+from newdojo.src.room import Room
 class Person(object):
     wants_livingspace = False
+    allocated_persons = []
+    unallocated_persons = []
+    designation = 'staff'
 
-    def __init__(self, name, designation, gender):
+    def __init__(self, name, gender):
         self.name = name
-        self.designation = designation
         self.gender = gender
         self.persons_list = []
         self.total_persons = len(self.persons_list)
-        self.allocated_persons = []
-        self.unallocated_persons = []
+
 
     def allocate_person(self):
         if self.designation == 'fellow' and self.wants_livingspace == True:
-            Room.allocate_by_gender()
+            Living_space(Room).allocate_by_gender()
 
 
 class Staff(Person):
