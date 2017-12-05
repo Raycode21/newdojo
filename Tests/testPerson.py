@@ -1,6 +1,7 @@
+
 import unittest
 from unittest import TestCase
-from src.person import Person, Fellow, Staff
+from newdojo.src.person import Person, Fellow, Staff
 
 class PersonClassTest(TestCase):
         def setup(self):

@@ -1,24 +1,37 @@
 from newdojo.src.person import Person
 class Room(object):
 
-    def __init__(self, room_name, room_type):
+
+    def __init__(self,room_name, room_type, room_gender):
         self.room_name = room_name
         self.room_type = room_type
+        self.room_gender = room_gender
         self.person_list = []
         self.max_occupancy = 0
         self.current_occupancy = len(self.person_list)
+        self.livingspace_by_gender = {'male':[], 'female':[]}
+
+
+    def allocate_by_gender(self):
+        while self.current_occupancy < self.max_occupancy and Person.wants_livingspace is True:
+            if self.room_gender == 'female' and Person.gender == 'F':
+                self.livingspace_by_gender['female'].append(Person)
+            else:
+                self.livingspace_by_gender['male'].append(Person)
+            break
+
 
 
 
     def create_room(self):
         new_room = (self.room_name, self.room_type)
-        print(new_room)
-        print('Room created successfully!')
+        print new_room
+        print'Room created successfully!'
 
     def is_full(self, new_person):
 
         if self.current_occupancy == self.max_occupancy:
-            print( 'You cannot add new members to this room!')
+            print 'You cannot add new members to this room!'
             Person.unallocated_persons.append(new_person)
         else:
             Person.allocated_persons.append(new_person)
@@ -40,16 +53,7 @@ class Living_space(Room):
         super(Living_space, self).__init__(room_name, room_gender)
         self.room_name = room_name
         self.max_occupancy = 4
-        self.room_gender = room_gender
-        self.livingspace_by_gender = {'male':[], 'female':[]}
 
-    def allocate_by_gender(self):
-        while self.current_occupancy < self.max_occupancy and Person.wants_livingspace is True:
-            if self.room_gender == 'female' and Person.gender == 'F':
-                self.livingspace_by_gender['female'].append(Person)
-            else:
-                self.livingspace_by_gender['male'].append(Person)
-            break
 
     def check_person_designation(self):
         if Person.designation == 'staff':
@@ -62,5 +66,4 @@ class Office(Room):
         super(Office, self).__init__(room_name)
         self.room_name = room_name
         self.max_occupancy = 6
-    if (Person == 'staff'or Person =='fellow') and self.current_occupancy < self.max_occupancy:
-         Room.Office.append(Person)
+        self.office_members = []

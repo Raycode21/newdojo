@@ -4,17 +4,12 @@ class Person(object):
     allocated_persons = []
     unallocated_persons = []
     designation = 'staff'
+    gender = 'F'
 
-    def __init__(self, name, gender):
+    def __init__(self, name):
         self.name = name
-        self.gender = gender
         self.persons_list = []
         self.total_persons = len(self.persons_list)
-
-
-    def allocate_person(self):
-        if self.designation == 'fellow' and self.wants_livingspace == True:
-            Living_space(Room).allocate_by_gender()
 
 
 class Staff(Person):

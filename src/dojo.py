@@ -1,5 +1,5 @@
-from person import Person
-from room import Room
+from newdojo.src.person import Person
+from newdojo.src.room import Room
 class Dojo(object):
     available_rooms = {'offices':'', 'living_spaces':''}
 
@@ -12,21 +12,20 @@ class Dojo(object):
         self.unallocated_rooms = []
         self.max_occupancy = 50
 
+    def allocate_person(self):
+        if Person.designation == 'fellow' and Person.wants_livingspace == True:
+            (self.available_rooms['living_spaces'])[0].append(Person)
+        Person.allocated_persons.append(Person)
+
 
     def number_of_available_rooms(self):
         if self.current_occupancy < self.max_occupancy:
            len(self.available_rooms)
 
-    def create_room(self):
-        new_room = (Room.room_name, Room.room_type)
-        print (new_room)
-
-    def add_room(self):
-        new_room = (Room.room_name, Room.room_type)
+    def add_room(self, new_room):
         self.all_rooms.append(new_room)
 
-    def allocate_room(self, room, wants_livingspace = False):
-        self.room = room
-        if Person== 'fellow' and Person.wants_livingspace == True:
-            Person.allocate_person()
+    def allocate_room(self, wants_livingspace = False):
+        if Person.designation == 'fellow' and Person.wants_livingspace is True:
+            self.allocate_person()
             Person.allocated_persons.append(Person)

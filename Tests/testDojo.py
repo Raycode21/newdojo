@@ -1,7 +1,7 @@
 
 import os
 from unittest import TestCase
-from src.dojo import*
+from newdojo.src.dojo import*
 
 def setUp(self):
     self.dojo = Dojo()
@@ -11,7 +11,7 @@ class TestCreateRoom(TestCase):
         dojo = Dojo('blue')
         initial_room_count = len(dojo.all_rooms)
         blue_office = dojo.create_room('Blue', 'office')
-        self.assertTrue(dojo_office)
+        self.assertTrue(blue_office)
         new_room_count = len(dojo.all_rooms)
         self.assertEqual(new_room_count - initial_room_count, 1)
 
